@@ -1,6 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:flutter_webview_plugin/flutter_webview_plugin.dart';
+import 'package:webview_flutter/webview_flutter.dart';
 import 'package:flutter/services.dart';
 import 'dart:convert';
 
@@ -9,7 +9,6 @@ final Set<JavascriptChannel> jsChannels = [
       name: 'Survey',
       onMessageReceived: (JavascriptMessage message) {
         print(message.message);
-        print('JOKER');
       }),
 ].toSet();
 
@@ -24,9 +23,6 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  final flutterWebViewPlugin = FlutterWebviewPlugin();
-  StreamSubscription _onDestroy;
-
   Future<String> _loadLocalHTML() async {
     return await rootBundle.loadString('assets/tr.html');
   }
@@ -34,23 +30,17 @@ class _MyAppState extends State<MyApp> {
   @override
   void initState() {
     super.initState();
-    _onDestroy = flutterWebViewPlugin.onDestroy.listen((_) {
-      if (mounted) {
-        print('webview destroyed');
-      }
-    });
   }
 
   @override
   void dispose() {
-    _onDestroy.cancel();
-    flutterWebViewPlugin.dispose();
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: '',
       theme: ThemeData(
         primarySwatch: Colors.blue,
@@ -62,20 +52,15 @@ class _MyAppState extends State<MyApp> {
               builder: (context, snapshot) {
                 if (snapshot.hasData) {
                   return Scaffold(
-                    floatingActionButton: FloatingActionButton(
-                      onPressed: () {
-                        flutterWebViewPlugin.evalJavascript("onReward(data)");
-                      },
-                    ),
-                    body: WebviewScaffold(
-                      url: Uri.dataFromString(
+                    appBar: AppBar(),
+                    body: WebView(
+                      initialUrl: Uri.dataFromString(
                         snapshot.data,
                         mimeType: 'text/html',
                         encoding: Encoding.getByName('utf-8'),
                       ).toString(),
                       javascriptChannels: jsChannels,
-                      appCacheEnabled: true,
-                      withJavascript: true,
+                      javascriptMode: JavascriptMode.unrestricted,
                     ),
                   );
                 } else if (snapshot.hasError) {

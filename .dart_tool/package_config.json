@@ -14,12 +14,6 @@
       "languageVersion": "2.2"
     },
     {
-      "name": "flutter_webview_plugin",
-      "rootUri": "file:///Users/arnav/Developer/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_webview_plugin-0.3.11",
-      "packageUri": "lib/",
-      "languageVersion": "2.0"
-    },
-    {
       "name": "meta",
       "rootUri": "file:///Users/arnav/Developer/flutter/.pub-cache/hosted/pub.dartlang.org/meta-1.1.8",
       "packageUri": "lib/",
@@ -44,12 +38,18 @@
       "languageVersion": "2.0"
     },
     {
+      "name": "webview_flutter",
+      "rootUri": "file:///Users/arnav/Developer/flutter/.pub-cache/hosted/pub.dartlang.org/webview_flutter-0.3.22+1",
+      "packageUri": "lib/",
+      "languageVersion": "2.7"
+    },
+    {
       "name": "flutter_webview_plugin_example",
       "rootUri": "../",
       "packageUri": "lib/"
     }
   ],
-  "generated": "2020-07-03T10:17:39.291755Z",
+  "generated": "2020-07-03T14:00:46.737369Z",
   "generator": "pub",
   "generatorVersion": "2.8.4"
 }
