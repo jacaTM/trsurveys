@@ -1,52 +1,56 @@
 <html>
+
 <head>
- <meta charset='utf-8'>
- <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
- <style>
+  <meta charset='utf-8'>
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+  <style>
     iframe {
-      height:100%;
-      width:100%;
-      margin:0;
-      position:absolute;
-      top:0;
-      left:0;
+      height: 100%;
+      width: 100%;
+      margin: 0;
+      position: absolute;
+      top: 0;
+      left: 0;
     }
-    </style>
- <meta http-equiv='X-UA-Compatible' content='IE=edge'>
- <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-<script type="text/javascript" src="https://s3.amazonaws.com/cdn.theoremreach/v3/theorem_reach.min.js"></script>
+  </style>
+  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+  <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="https://s3.amazonaws.com/cdn.theoremreach/v3/theorem_reach.min.js"></script>
 </head>
+
 <body>
- <iframe src="https://theoremreach.com/respondent_entry/direct?api_key=845783b32b8bef12f1b55a36a8be&user_id=12345"></iframe>
- <script type="text/javascript">
-var theoremReachConfig = {
-apiKey: "845783b32b8bef12f1b55a36a8be",
-userId: "12345",
-onRewardCenterOpened: onRewardCenterOpened,
-onReward: onReward,
-onRewardCenterClosed: onRewardCenterClosed
-};
+  <iframe
+    src="https://theoremreach.com/respondent_entry/direct?api_key=845783b32b8bef12f1b55a36a8be&user_id=12345"></iframe>
+  <script type="text/javascript">
+    var theoremReachConfig = {
+      apiKey: "apiKey",
+      userId: "userId",
+      onRewardCenterOpened: onRewardCenterOpened,
+      onReward: onReward,
+      onRewardCenterClosed: onRewardCenterClosed
+    };
 
-var TR = new TheoremReach(theoremReachConfig);
+    var TR = new TheoremReach(theoremReachConfig);
 
-function onRewardCenterOpened(){
-console.log("onRewardCenterOpened");
+    function onRewardCenterOpened() {
+      console.log("onRewardCenterOpened");
 
-}
+    }
 
-function onReward(data){
-console.log("onReward: " + data.earnedThisSession);
-Survey.postMessage(data.earnedThisSession);
-}
+    function onReward(data) {
+      console.log("onReward: " + data.earnedThisSession);
+      Survey.postMessage(data.earnedThisSession);
+    }
 
-function onRewardCenterClosed(){
-console.log("onRewardCenterClosed");
-}
+    function onRewardCenterClosed() {
+      console.log("onRewardCenterClosed");
+    }
 
-if (TR.isSurveyAvailable()) {
-TR.showRewardCenter();
-}
+    if (TR.isSurveyAvailable()) {
+      TR.showRewardCenter();
+    }
 
-</script>
+  </script>
 </body>
+
 </html>
