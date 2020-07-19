@@ -1,0 +1,29 @@
+PODS:
+  - Flutter (1.0.0)
+  - TheoremReach (3.3.6)
+  - trsurveys (0.0.1):
+    - Flutter
+    - TheoremReach
+
+DEPENDENCIES:
+  - Flutter (from `Flutter`)
+  - trsurveys (from `.symlinks/plugins/trsurveys/ios`)
+
+SPEC REPOS:
+  trunk:
+    - TheoremReach
+
+EXTERNAL SOURCES:
+  Flutter:
+    :path: Flutter
+  trsurveys:
+    :path: ".symlinks/plugins/trsurveys/ios"
+
+SPEC CHECKSUMS:
+  Flutter: 0e3d915762c693b495b44d77113d4970485de6ec
+  TheoremReach: c96dded73a67a0e8bd99cb6e193faa56d915d39c
+  trsurveys: f777f31fd70c2df070e2de0bb1604aab00326e28
+
+PODFILE CHECKSUM: c34e2287a9ccaa606aeceab922830efb9a6ff69a
+
+COCOAPODS: 1.9.3
