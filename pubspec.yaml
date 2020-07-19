@@ -1,6 +1,6 @@
 name: trsurveys
 description: A plugin for TheoremReach Surveys SDK for both Android & iOS
-version: 1.0.0
+version: 1.0.1
 homepage: https://github.com/AnavrinApps/trsurveys
 
 environment:

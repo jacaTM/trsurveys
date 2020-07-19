@@ -15,7 +15,7 @@ class _MyAppState extends State<MyApp> {
   @override
   void initState() {
     TheoremReach.instance
-        .init(apiToken: '40cdb7704cacbaeb4c4e491f4ece', userId: 'userId');
+        .init(apiToken: 'api_key', userId: 'userId');
     TheoremReach.instance.setTheoremReachOnRewardListener(onTheoremReachReward);
     TheoremReach.instance
         .setTheoremReachRewardCenterClosed(onTheoremReachRewardCenterClosed);

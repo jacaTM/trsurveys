@@ -2,33 +2,44 @@
 
 ## Getting started:
 ### 1. Initialise TheoremReach 
-Call `init()` during app initialization
+Call `init()` during app initialization & set your listeners.
 
 ```sh
-TheoremReach()
- .init(apiToken: 'apiToken', userId: 'userId', listener: trListener);
+ TheoremReach.instance
+        .init(apiToken: 'api_key', userId: 'userId');
+    TheoremReach.instance.setTheoremReachOnRewardListener(onTheoremReachReward);
+    TheoremReach.instance
+        .setTheoremReachRewardCenterClosed(onTheoremReachRewardCenterClosed);
+    TheoremReach.instance
+        .setTheoremReachRewardCenterOpened(onTheoremReachRewardCenterOpened);
+    TheoremReach.instance
+        .setTheoremReachSurveyAvaiableListener(onTheoremReachSurveyAvailable);
 ```
   
 ### 2. Initialise callback listeners
  
  ```sh
- trListener(TheoremReachListener event) {
- if (event == TheoremReachListener.theoremReachSurveyAvailable) {
- print('survey available');
- } else if (event == TheoremReachListener.onReward) {
- print('on reward');
- } else if (event == TheoremReachListener.onRewardCenterClosed) {
- print('on closed');
- } else if (event == TheoremReachListener.onRewardCenterOpened) {
- print('on opened');
- }
- }
+  void onTheoremReachReward(int quantity) {
+    print('TR: $quantity');
+  }
+
+  void onTheoremReachSurveyAvailable(int survey) {
+    print('TR: $survey'); // 1 represents if a survey is available 
+  }
+
+  void onTheoremReachRewardCenterClosed() {
+    print('TR: closed');
+  }
+
+  void onTheoremReachRewardCenterOpened() {
+    print('TR: opened');
+  }
  ```
 
  ### 3. Call TheoremReach 
   
   ```sh 
-TheoremReach().show()
+TheoremReach.instance.show()
  ```
 
    ### IMPORTANT: If you’re Publishing and using Proguard add these lines to your configuration file:
