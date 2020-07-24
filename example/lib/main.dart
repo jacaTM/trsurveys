@@ -15,7 +15,7 @@ class _MyAppState extends State<MyApp> {
   @override
   void initState() {
     TheoremReach.instance
-        .init(apiToken: 'api_key', userId: 'userId');
+        .init(apiToken: 'yourapitoken', userId: 'userId');
     TheoremReach.instance.setTheoremReachOnRewardListener(onTheoremReachReward);
     TheoremReach.instance
         .setTheoremReachRewardCenterClosed(onTheoremReachRewardCenterClosed);
@@ -50,10 +50,20 @@ class _MyAppState extends State<MyApp> {
           title: const Text('Plugin example app'),
         ),
         body: Center(
-            child: RaisedButton(
-          child: Text("Launch TheoremReach"),
-          onPressed: () => TheoremReach.instance.show(),
-        )),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              RaisedButton(
+                child: Text("Launch TheoremReach"),
+                onPressed: () => TheoremReach.instance.show(),
+              ),
+              RaisedButton(
+                child: Text("Launch TheoremReach Placement"),
+                onPressed: () => TheoremReach.instance.show(placementID: 'yourplacement'),
+              )
+            ],
+          )
+        ),
       ),
     );
   }
