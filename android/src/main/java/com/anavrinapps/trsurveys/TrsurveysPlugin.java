@@ -87,7 +87,12 @@ void OnMethodCallHandler(final String method, final int args) {
     if (call.method.equals("init")) {
       extractTheoremReachParams(call,result);
     } else if (call.method.equals("show")) {
-      TheoremReach.getInstance().showRewardCenter();
+      if(call.argument("placementID")!=null){
+        String placement = call.argument("placementID");
+        TheoremReach.getInstance().showRewardCenter(placement);
+      }else{
+          TheoremReach.getInstance().showRewardCenter();
+      }
     }else if(call.method.equals("setNavBarText")){
       String text = call.argument("text");
       TheoremReach.getInstance().setNavigationBarText(text);

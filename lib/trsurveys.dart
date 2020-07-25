@@ -31,8 +31,9 @@ class TheoremReach {
         "init", <String, dynamic>{"api_token": apiToken, "user_id": userId});
   }
 
-  Future<void> show() {
-    return _channel.invokeMethod("show");
+  Future<void> show({String placementID}) {
+    return _channel.invokeMethod(
+        "show", <String, dynamic>{"placementID": placementID});
   }
 
   Future<void> setNavBarText({String text}) {
